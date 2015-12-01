@@ -1,3 +1,6 @@
+# 0.1.2
+Manages init script to work around issue https://github.com/yahoo/kafka-manager/issues/13#issuecomment-160996849
+
 # 0.1.1
 Updates metadata for supermarket
 
