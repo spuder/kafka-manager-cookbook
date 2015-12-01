@@ -41,7 +41,6 @@ action :install do
       group 'root'
       mode 00644
       action :create
-      notifies :restart, 'service[kafka-manager]'
     end
   else
     Chef::Log.fatal("Only supports ubuntu / centos. Found: #{node['platform_family']}")
