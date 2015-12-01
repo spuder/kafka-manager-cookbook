@@ -38,4 +38,12 @@ action :install do
     not_if "stat -c %U /usr/share/kafka-manager/README.md | grep kafka-manager"
   end
 
+  # chown the kafka-manager log directory since package chowns to root
+  execute 'chown kafka-manager log directory' do
+    command 'chown -R kafka-manager:kafka-manager /var/log/kafka-manager'
+    user "root"
+    action :run
+    not_if "stat -c %U /var/log/kafka-manager | grep kafka-manager"
+  end
+
 end

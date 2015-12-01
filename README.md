@@ -17,8 +17,6 @@ The packages are currently only available for ubuntu, centos images will be crea
 
 # Usage
 
-Kafka-manager runs on port 9000 by default.
-
 This cookbook uses custom resources so **chef 12.5 or newer is required**. The cookbook can be used in 2 ways
 
 1. As a community cookbook
@@ -39,7 +37,6 @@ Create a role and add `java` and `kafka-manager` to your run_list
     }
   }
 }
-
 ```
 
 2. As a library cookbook
@@ -68,8 +65,33 @@ service 'kafka-manager' do
 end
 ```
 
+By default kafka-manager runs on port 9000. You may want to setup a reverse proxy to redirect requests from port 80
+A recipe and a custom resource are provided that will install nginx and setup the redirect.
+
+In your role
+
+```json
+"run_list": [
+  "recipe[apt]",
+  "recipe[java]",
+  "recipe[kafka-manager]"
+  "recipe[kafka-manager::nginx]"
+]
+```
+
+Or in your wrapper cookbook
+
+```ruby
+kafka_proxy 'default' do
+  action :create
+end
+```
+
 # Attributes
 
 Change the value of 'zkhosts' to the zookeeper servers
 
      node['kafka-manager']['zkhosts']= 'foo:2181,bar:2181'
+
+
+kafka-manager-cookbook is not affiliated with Yahoo or the creators of kafka-manager.

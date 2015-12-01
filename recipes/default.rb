@@ -5,7 +5,7 @@
 # Copyright (c) 2015 The Authors, All Rights Reserved.
 
 kafka_manager 'default' do
-  package_version "#{['node']['kafka-manager']['version']}"
+  package_version "#{node['kafka-manager']['version']}"
   action :install
 end
 

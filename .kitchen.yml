@@ -18,6 +18,7 @@ suites:
     run_list:
       - recipe[java]
       - recipe[kafka-manager::default]
+      - recipe[kafka-manager::nginx]
     attributes:
       java:
         jdk_version: 7
