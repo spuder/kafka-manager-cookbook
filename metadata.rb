@@ -4,7 +4,7 @@ maintainer_email 'owenspencer@gmail.com'
 license 'MIT'
 description 'Installs/Configures kafka-manager'
 long_description 'Installs/Configures kafka-manager'
-version '0.1.0'
+version '0.1.1'
 
 depends 'apt'
 depends 'packagecloud'
