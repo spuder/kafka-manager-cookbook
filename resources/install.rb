@@ -30,6 +30,24 @@ action :install do
     action :install
   end
 
+  # Work around issue https://github.com/yahoo/kafka-manager/issues/13#issuecomment-160996849
+  case node['platform_family']
+  when 'rhel'
+    #TODO Add support for centos init scripts
+  when 'debian'
+    cookbook_file '/etc/init/kafka-manager.conf' do
+      source 'upstart/kafka-manager.conf'
+      owner 'root'
+      group 'root'
+      mode 00644
+      action :create
+      notifies :restart, 'service[kafka-manager]'
+    end
+  else
+    Chef::Log.fatal("Only supports ubuntu / centos. Found: #{node['platform_family']}")
+  end
+
+
   # chown the kafka-manager folder so the kafka-manager can use it
   execute 'chown kafka-manager' do
     command 'chown -R kafka-manager:kafka-manager /usr/share/kafka-manager'
