@@ -23,4 +23,4 @@ suites:
       java:
         jdk_version: 7
       kafka-manager:
-        zkhosts: "foo:1234,bar:5678"
+        zkhosts: "localhost:2181" #comma separated (foo:2181,bar:2181)
