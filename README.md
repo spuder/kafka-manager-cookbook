@@ -4,7 +4,7 @@
 ![](https://img.shields.io/cookbook/v/kafka-manager.svg)
 ![](https://img.shields.io/github/tag/spuder/kafka-manager-cookbook.svg)
 
-Installs java and downloads kafka-manager from package cloud
+Installs kafka-manager from package cloud
 Note, these are **unofficial packages**. Follow [this github issue for the status of official packages.](https://github.com/yahoo/kafka-manager/issues/18)
 
 The packages are currently only available for ubuntu, centos images will be created if needed
@@ -20,6 +20,8 @@ The packages are currently only available for ubuntu, centos images will be crea
 
 
 # Usage
+Install java by adding java recipe to run list. **Oracle Java 8** is recommended, though Oracle Java 7 , . See .kitchen.yml for attribute examples
+
 
 This cookbook uses custom resources so **chef 12.5 or newer is required**. The cookbook can be used in 2 ways
 

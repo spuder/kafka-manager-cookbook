@@ -22,5 +22,8 @@ suites:
     attributes:
       java:
         jdk_version: 7
+        # install_flavor: 'oracle'
+        # oracle:
+        #   accept_oracle_download_terms: true
       kafka-manager:
         zkhosts: "localhost:2181" #comma separated (foo:2181,bar:2181)
